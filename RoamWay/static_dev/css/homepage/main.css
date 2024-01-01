@@ -1,0 +1,69 @@
+:root {
+    --title-height: 30px;
+    --top-div-height: 215px;
+    --bottom-div-height: 420px;
+    --secondary-padding: 15px;
+}
+
+.-div-title {
+    height: var(--title-height);
+    font-size: 25px;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0px 0 0px;
+    margin-bottom: 10px;
+}
+
+.-main-div {
+    width: 100%;
+    height: 100%;
+    padding-left: 5%;
+    padding-right: 0%;
+    padding-top: 20px;
+    padding-bottom: 4%;
+    overflow-x: auto;
+}
+
+.-top-div {
+    width: 100%;
+    height: var(--top-div-height);
+    max-height: var(--top-div-height);
+}
+
+.-bottom-div {
+    display: flex;
+}
+
+.-bottom-div1,
+.-bottom-div2 {
+    display: inline;
+    position: relative;
+    height: var(--bottom-div-height);
+    margin-top: var(--secondary-padding);
+    height: var(--bottom-div-height);
+    max-height: var(--bottom-div-height);
+}
+
+.-bottom-div1 {
+    width: 755px;
+    max-width: 755px;
+    min-width: 755px;
+    padding-right: 30px;
+}
+
+.-bottom-div2 {
+    padding-right: 20px;
+    min-width: var(--bottom-div-height);
+}
+
+.-cards-container {
+    width: 100%;
+    height: calc(var(--top-div-height) - var(--title-height));
+    max-height: calc(var(--top-div-height) - var(--title-height));
+}
+
+.-map-container {
+    width: 100%;
+    max-width: 100%;
+    height: calc(var(--bottom-div-height) - var(--title-height));
+    max-height: calc(var(--bottom-div-height) - var(--title-height));
+}

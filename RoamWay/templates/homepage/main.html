@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<link rel="stylesheet" href="{% static 'css/homepage/main.css' %}" />
+
+<div class="-main-div">
+    <div class="-top-div">
+        <div class="-div-title">Рекомендованные пользователи</div>
+        <div class="-cards-container">
+            {% include 'includes/homepage/carousel.html' %}
+        </div>
+    </div>
+    <div class="-bottom-div">
+        <div class="-bottom-div1">
+            <div class="-div-title">Карта</div>
+            <div class="-map-container">
+                {% include 'includes/map/map.html' %}
+            </div>
+        </div>
+        <div class="-bottom-div2">
+            {% if images %}
+            <div class="-div-title">Последние фотографии</div>
+            {% for image in images %}
+            <a href="{{ image.file.url }}" data-lightbox="my-gallery" style="padding:1%">
+                <img src="{{ image.file.url }}" width="auto" height="190" style="border-radius: 10px; margin-bottom: 10px; max-width: 100%; height: auto; max-height: 190px;">
+            </a>
+            {% endfor %} {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

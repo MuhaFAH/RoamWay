@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<link href="{% static 'css/lightbox/lightbox.min.css' %}" rel="stylesheet" />
+<link href="{% static 'css/homepage/photos.css' %}" rel="stylesheet">
+
+
+
+<div class="-main-container" style="padding: 5%; padding-top: 2%;">
+    <form enctype="multipart/form-data" method="POST">
+        {% csrf_token %}
+        <input id="-add-img-input" onchange="form.submit()" name="files" type="file" multiple="multiple">
+        <label for="-add-img-input" class="-add-img-btn">
+            <span class="btn btn-info">
+                Добавить фото
+                <img class="-add-img-icon" src="{% static 'img/includes/add-img.png' %}" alt="" />
+
+            </span>
+        </label>
+    </form>
+
+    <div>
+        <div class="col-5">
+            {% for image in images %}
+            <div>
+                <!--  -->
+                <a href="{{ image.file.url }}" style="width: fit-content; height: fit-content;">
+                    <img src="{{ image.file.url }}" width="100%" height="auto" style="border-radius: 15px;">
+                </a>
+                {% if image.user == request.user %}
+                <a href="{% url 'homepage:delete_photo' photo_id=image.id %}" style="color: #F5F5F5; text-decoration: none; padding: 0px; margin: 0px;">
+                    <img class="-delete-img-icon" src="{% static 'img/includes/delete-img.png' %}" alt="" style="height: 30px; width: auto; margin-top: -70px;  -webkit-filter: drop-shadow(0px 5px 10px #000000); filter: drop-shadow(0px 5px 10px #000000);" />
+                </a>
+                {% endif %}
+                <!--  -->
+
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

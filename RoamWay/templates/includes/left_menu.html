@@ -1,0 +1,70 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/includes/left_menu.css' %}" /> {% with request.resolver_match.view_name as view_name %}
+<div class="flex-column mb-sm-auto">
+    <a href="{% url 'homepage:main' %}">
+        <div class="-logo-title"><img class="-logo-img" src="{% static 'img/logo/violet.png' %}">RoamWay​</div>
+    </a>
+    <div class="-group-separator"></div>
+    <div class="-separator"></div>
+    {% if user.is_superuser %}
+    <a href="{% url 'admin:index' %}">
+        <div class="-btn-menu{% if view_name == 'admin:index' %}-active{% endif %}">
+            <img class="-menu-img" src="{% static 'img/includes/tool.png' %}" alt="" /> Админка
+        </div>
+    </a>
+    {% endif %} {% if request.user.is_authenticated %}
+    <a href="{% url 'users:user_profile' %}">
+        <div class="-btn-menu{% if view_name == 'users:user_profile' %}-active{% endif %}">
+            <img class="-menu-img" src="{% static 'img/includes/user.png' %}" alt="" /> Профиль
+        </div>
+    </a>
+    {% else %}
+    <a href="{% url 'users:login' %}">
+        <div class="-btn-menu{% if view_name == 'users:login' or view_name == 'users:signup' %}-active{% endif %}">
+            <img class="-menu-img" src="{% static 'img/includes/user.png' %}" alt="" /> Войти
+        </div>
+    </a>
+    {% endif %}
+    <a href="{% url 'homepage:main' %}">
+        <div class="-btn-menu{% if view_name == 'homepage:main' %}-active{% endif %}">
+            <img class="-menu-img" src="{% static 'img/includes/home.png' %}" alt="" /> Главная
+        </div>
+    </a>
+
+    <div class="-group-separator"></div>
+
+    <a href="{% url 'homepage:photos' %}">
+        <div class="-btn-menu{% if view_name == 'homepage:photos' %}-active{% endif %}">
+            <img class="-menu-img" src="{% static 'img/includes/categories.png' %}" alt="" /> Фотографии
+        </div>
+    </a>
+
+    <a href="{% url 'homepage:map' %}">
+        <div class="-btn-menu{% if view_name == 'homepage:map' %}-active{% endif %}">
+            <img class="-menu-img" src="{% static 'img/includes/map-flag.png' %}" alt="" /> Карта
+        </div>
+    </a>
+    <a href="{% url 'homepage:tasks' %}">
+        <div class="-btn-menu{% if view_name == 'homepage:tasks' %}-active{% endif %}">
+            <img class="-menu-img" src="{% static 'img/includes/tasks.png' %}" alt="" /> Цели
+        </div>
+    </a>
+</div>
+
+<div class="spacer-h-30"></div>
+<div class="dropdown">
+    {% if request.user.is_authenticated %}
+    <a href="{% url 'users:logout' %}">
+        <div class="-btn-menu{% if view_name == 'users:logout' %}-active{% endif %}">
+            <img class="-menu-img" src="{% static 'img/includes/logout.png' %}" alt="" /> Выйти
+        </div>
+    </a>
+    {% endif %}
+    <a href="{% url 'homepage:about' %}">
+        <div class="-btn-menu{% if view_name == 'homepage:about' %}-active{% endif %}">
+            <img class="-menu-img" src="{% static 'img/includes/about.png' %}" alt="" /> О проекте
+        </div>
+    </a>
+</div>
+<div class="spacer-h-30"></div>
+{% endwith %}

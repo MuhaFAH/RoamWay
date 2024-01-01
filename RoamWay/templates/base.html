@@ -1,0 +1,36 @@
+<!DOCTYPE html> {% load static %}
+
+<html lang="ru" data-bs-theme="dark">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0%" />
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/my/bg.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/my/shadows.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/my/sizes.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/my/btns.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/my/spacers.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/my/aligns.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/my/bg.css' %}" />
+
+    <!-- icon -->
+    <link rel="icon" href="{% static 'img/logo/violet.png' %}" type="image" />
+    <!-- title -->
+    {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>ВЕБ-САЙТ</title>
+    {% endif %}
+</head>
+
+<body>
+    <div class="-left-div d-flex flex-column">
+        {% include 'includes/left_menu.html' %}
+    </div>
+    <div class="-content-div">{% block content %} {% endblock %}</div>
+</body>
+
+</html>

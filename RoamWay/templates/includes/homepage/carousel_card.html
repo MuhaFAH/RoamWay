@@ -1,0 +1,14 @@
+{% load static %}
+
+<div class="-card">
+    <a href="{% url 'users:profile_by_id' profile_id=user.id %}">
+  
+        {% if user.profile.image %}
+        <div class="-profile-img" style="background-image: url({{ user.profile.image.url }});">
+        </div>
+        {% else %}
+        <div class="-profile-img" style="background-image: url({% static 'img/users/default.jpg' %});">
+        </div>  
+        {% endif %}
+    </a>
+</div>

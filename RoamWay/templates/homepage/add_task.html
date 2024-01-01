@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<link rel="stylesheet" href="{% static 'css/homepage/tasks.css' %}">
+
+<div class="-main-div" style="align-items: center; justify-content: center; width: 100%; height: 100%; padding-left: 5%; padding-right: 5%; padding-top: 20px; padding-bottom: 4%; overflow-x: auto;">
+    <h1>Добавление задачи</h1>
+    <form enctype="multipart/form-data" style="align-self: center; width:500px;" method="POST">
+    {% csrf_token %}
+        <div class="form-outline mb-4">
+            <label class="form-label lead" for="{{ cntry_form.homeland_country.id_for_label }}">Выберите страну</label>
+            <br>
+            {{ cntry_form.homeland_country }}
+            <span style="color: red">{{ cntry_form.errors.homeland_country }} </span>
+        </div>
+        <div class="form-outline mb-4">
+            <label class="form-label lead" for="{{ text_form.text.id_for_label }}">Введите цель</label>
+            <br>
+            {{ text_form.text }}
+            <span style="color: red">{{ text_form.errors.text }} </span>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block mb-4">Добавить задачу</button>
+    </form>
+</div>
+{% endblock %}

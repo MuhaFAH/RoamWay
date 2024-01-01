@@ -1,0 +1,8 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/includes/carousel.css' %}" />
+
+<div class="-container">
+    {% for user in recommended_users %}
+        {% include 'includes/homepage/carousel_card.html' %}
+    {% endfor %}
+</div>

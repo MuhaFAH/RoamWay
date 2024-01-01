@@ -1,0 +1,66 @@
+.image-container {
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.delete-button {
+    display: block;
+    margin-top: 5px;
+}
+
+#-add-img-input {
+    display: none;
+}
+
+.-add-img-btn {
+    padding: 0px;
+    margin: 0px;
+    transition: 0.4s;
+    opacity: 0.9;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.-add-img-btn .btn {
+    font-size: 20px;
+    color: white;
+}
+
+.-add-img-btn img {
+    opacity: 1;
+}
+
+.-add-img-btn:hover {
+    transition: 0.5s;
+    transform: scale(1.1);
+    transition-duration: 0.3s;
+    opacity: 1;
+}
+
+.-add-img-icon {
+    height: 40px;
+    width: auto;
+}
+
+.col-5 {
+    -webkit-column-count: 5;
+    -moz-column-count: 5;
+    column-count: 5;
+    width: 100%;
+    min-width: 900px;
+}
+
+.col-5>div {
+    width: 105%;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+.sm {
+    height: 75px;
+}
+
+.lg {
+    height: 125px;
+}

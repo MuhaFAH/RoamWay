@@ -1,0 +1,40 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<link rel="stylesheet" href="{% static 'css/homepage/main.css' %}" />
+
+<div class="-main-div">
+    <div class="-top-div">
+        <div class="-div-title">О нас</div>
+        <div>
+            Этот полуработающий кусок велосипеда сделали:<br>
+            <img src="{% static 'img/about/muxa.jpg' %}" style="width:200px; height:auto; padding-top:15px; padding-left:15px;"> Муха<br>
+            <img src="{% static 'img/about/garage.jpg' %}" style="width:200px; height:auto; padding-top:15px; padding-left:15px;"> Гараж<br>
+            <img src="{% static 'img/about/risa.jpg' %}" style="width:200px; height:auto; padding-top:15px; padding-left:15px;"> Лиза<br>
+            <p style="padding-top: 15px">
+                Цель нашего проекта заключается в создании web-решения для повышения комфорта путешественников.
+                Наш проект включает следующий функционал:
+            </p>
+            <ul>
+                <li>
+                    Возможность отмечать на карте страны, которые человек хочет посетить/уже посетил
+                    (а также принадлежащие им географические объекты)
+                </li>
+                <li>
+                    Добавление пользователем чек-листа со списком дел, которые
+                    он бы хотел сделать во время путешествия по стране
+                </li>
+                <li>
+                    Просмотр профилей других пользователей и опубликованной ими информации о посещенных странах,
+                    связанными с этим событиями
+                </li>
+            </ul>
+            <p>
+                Если у вас есть вопросы, предложения или отзывы, пожалуйста, свяжитесь с нами:<br>
+                Логин Telegram: @add2nosmg
+            </p>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

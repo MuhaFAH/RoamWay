@@ -1,0 +1,163 @@
+/* подключаем внешний шрифт */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+/* общие настройки для всего *
+
+/* внутренний блок */
+
+.flexDiv {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 20px;
+    padding-bottom: 4%;
+    overflow-x: auto;
+}
+
+.del-button {
+    text-align: center;
+    margin-left: auto;
+    margin-top: 11px;
+    margin-right: 0;
+    padding: 0;
+    width: 20%;
+    height: 20%;
+    align-self: center;
+    justify-self: center;
+}
+
+.taskbtn {
+    display: flex;
+    width: 100% !important;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 20px;
+}
+
+.taskbtn a {
+    max-width: 200px;
+    width: 100%;
+}
+
+
+/* скрываем флажок у чекбокса */
+
+input[type="checkbox"] {
+    display: none;
+}
+
+
+/* абсолютное позиционирование для тегов */
+
+.pos-abs {
+    /* включаем абсолютное позиционирование */
+    /* отступ сверху */
+    top: -50px;
+    /* внутренний отступ до левой и верхней границы */
+    margin: 20px;
+    margin-top: 8px !important;
+}
+
+.tag {
+    /* внешние отступы */
+    padding: 6px 12px;
+    margin-top: 10px;
+    /* подгоняем размер блока под содержимое */
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    /* радиус скругления */
+    border-radius: 9999px;
+    /* отступ сверху */
+    /* запрещаем выделять мышкой этот элемент */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+/* добавляем хештег перед тегом */
+
+.tag::before {
+    /* добавляем текст, отступ и прозрачность */
+    content: "#";
+    margin-right: 2px;
+    opacity: 0.3;
+}
+
+
+/* настройки переменных для цветов тегов */
+
+.afgan,
+.note:has(.afgan) {
+    /* рабочий */
+    --tagColor: #fcdbcf;
+}
+
+
+/* настройки цвета фона тегов */
+
+.afgan {
+    /* берём значение фона из переменных */
+    background-color: var(--tagColor);
+    color: #002F55;
+}
+
+
+/* настройки карточки */
+
+.note {
+    /* цвет фона */
+    background-color: rgba(197, 193, 255, 0.1);
+    /* граница */
+    /* рисуем границу по периметру карточки */
+    box-sizing: border-box;
+    /* межстрочное расстояние */
+    line-height: 1.5;
+    /* радиус скругления */
+    border-radius: 8px;
+    /* рисуем тень */
+    box-shadow: rgb(0, 0, 0) 0px 0px 10px;
+    /* скрываем всё, что не помещается в блок */
+    overflow: hidden;
+    transition: all 300ms ease-in-out 0s;
+    padding: 15px;
+    width: 320px;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+
+/* меняем курсор при наведении на тег */
+
+label {
+    cursor: pointer;
+}
+
+
+/* делаем тег чуть бледнее при наведении */
+
+label:hover {
+    opacity: 0.8;
+}
+
+.btn {
+    background-color: rgb(0, 154, 206);
+    transition: 0.3s;
+    box-shadow: rgb(0, 0, 0) 0px 0px 10px;
+}
+
+.btn:hover {
+    background-color: rgb(0, 191, 255);
+    opacity: 0.9;
+    transition: 0.4s;
+    transform: scale(1.02);
+    transition-duration: 0.3s;
+}

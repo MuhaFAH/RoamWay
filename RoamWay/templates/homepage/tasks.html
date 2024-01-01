@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<link rel="stylesheet" href="{% static 'css/homepage/tasks.css' %}">
+
+<div class="-main-div">
+    <div class="taskbtn">
+        <a class="btn btn-success" href="{% url 'countries:new_task' %}">Добавить задачу</a>
+    </div>
+    <div id="wrapper">
+        <div class="flexDiv">
+        {% for task in tasks %}
+            <div class="note">
+                {{ task.text }}
+                <div style="display: flex">
+                    <div class="tag afgan">{{ task.country.name }}</div>
+                    <a class="del-button" href="{% url 'countries:del_task' pk=task.id %}"><img style="width: 25px;" src="{% static 'img/includes/delete.png' %}"></a>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+      </div>
+</div>
+{% endblock %}

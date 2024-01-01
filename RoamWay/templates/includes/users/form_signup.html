@@ -1,0 +1,79 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/users/form.css' %}">
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+<div class="login-box -register-box top-50 start-50 translate-middle" style="min-width: fit-content;">
+    <form method="post" action="">
+        {% csrf_token %}
+        <h2 style="padding-top: 20px">Регистрация</h2>
+        <div class="input-box">
+            <span class="icon">
+                <img class="-img" src="{% static 'img/includes/user.png' %}" alt="" />
+            </span>
+            <input name="username" type="username" required="" readonly onfocus="this.removeAttribute('readonly')">
+            <label>Имя</label>
+            <div class="input-line"></div>
+        </div>
+
+        {% if form.username.errors %}
+        <div class="-error-div">
+            <small>{{ form.username.errors|striptags }}</small>
+        </div>
+        {% endif %}
+
+        <div class="input-box">
+            <span class="icon">
+                <ion-icon name="mail"></ion-icon>
+            </span>
+            <input name="email" type="name" required="" readonly onfocus="this.removeAttribute('readonly')">
+            <label>Почта</label>
+            <div class="input-line"></div>
+        </div>
+
+        {% if form.email.errors %}
+        <div class="-error-div">
+            <small>{{ form.email.errors|striptags }}</small>
+        </div>
+        {% endif %}
+
+        <div class="input-box">
+            <span class="icon">
+                <ion-icon name="lock-closed" role="img" class="md hydrated" aria-label="lock closed"></ion-icon>
+            </span>
+            <input name="password1" type="password" required="">
+            <label>Пароль</label>
+            <div class="input-line"></div>
+        </div>
+        {% if form.password1.errors %}
+        <div class="-error-div">
+            <small>{{ form.password1.errors|striptags }}</small>
+        </div>
+        {% endif %}
+
+        <div class="input-box">
+            <span class="icon">
+                <ion-icon name="lock-closed" role="img" class="md hydrated" aria-label="lock closed"></ion-icon>
+            </span>
+            <input name="password2" type="password" required="">
+            <label>Подтверждение пароля</label>
+            <div class="input-line"></div>
+        </div>
+
+        {% if form.password2.errors %} {% for password_error in form.password2.errors %}
+        <div class="-error-div -password-error {% if forloop.last %}-password-error-last{% endif %}">
+            <small>{{ password_error|striptags }}</small>
+        </div>
+        {% endfor %} {% endif %}
+
+        <div class="remember-forgot">
+        </div>
+        <button type="submit">Зарегистрироваться</button>
+        <div class="register-link">
+            <p>Уже есть аккаунт? <a href="{% url 'users:login' %}">Войти</a></p>
+        </div>
+    </form>
+</div>

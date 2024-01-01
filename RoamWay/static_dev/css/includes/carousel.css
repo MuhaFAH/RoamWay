@@ -1,0 +1,53 @@
+:root {
+    --card-size: 170px;
+}
+
+.-container {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+a {
+    min-height: 100%;
+}
+
+.-card {
+    padding-right: 10px;
+    height: calc(100% - 5px);
+    width: auto;
+}
+
+.-card * {
+    height: 100%;
+    width: auto;
+    border-radius: 20px;
+}
+
+.-profile-img {
+    background-size: cover;
+    background-position: 50% 50%;
+    height: 175px;
+    width: 175px;
+}
+
+.-container::-webkit-scrollbar {
+    height: 5px;
+    /* ширина scrollbar */
+}
+
+.-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    /* цвет дорожки */
+}
+
+.-container::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    /* цвет плашки */
+    border-radius: 3px;
+    /* закругления плашки */
+    border: 0px solid;
+    /* padding вокруг плашки */
+}

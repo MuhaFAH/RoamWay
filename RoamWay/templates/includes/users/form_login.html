@@ -1,0 +1,43 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/users/form.css' %}">
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+<div class="login-box top-50 start-50 translate-middle">
+    <form method="post" action="">
+        {% csrf_token %}
+        <h2>Вход</h2>
+        <div class="input-box">
+            <span class="icon">
+                <img class="-img" src="{% static 'img/includes/user.png' %}" alt="" />
+            </span>
+            <input name="username" type="username" required="" readonly onfocus="this.removeAttribute('readonly')">
+            <label>Имя</label>
+            <div class="input-line"></div>
+        </div>
+        {% if form.username.errors %}
+        <small>{{ form.username.errors|striptags }}</small>
+        {% endif %}
+        <div class="input-box">
+            <span class="icon">
+                <ion-icon name="lock-closed" role="img" class="md hydrated" aria-label="lock closed"></ion-icon>
+            </span>
+            <input name="password" type="password" required="">
+            <label>Пароль</label>
+            <div class="input-line"></div>
+        </div>
+        {% if form.password.errors %}
+        <small>{{ form.password.errors|striptags }}</small>
+        {% endif %}
+        <div class="remember-forgot">
+            <a href="{% url 'users:password_reset' %}">Забыли пароль?</a>
+        </div>
+        <button type="submit">Войти</button>
+        <div class="register-link">
+            <p>Еще нет аккаунта?</p>
+            <a href="{% url 'users:signup' %}">Зарегистрироваться</a>
+        </div>
+    </form>
+</div>
